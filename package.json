@@ -5,6 +5,7 @@
     "docs:preview": "vitepress preview docs"
   },
   "dependencies": {
+    "@tailwindcss/typography": "^0.5.13",
     "@shikijs/vitepress-twoslash": "^3.17.0",
     "gsap": "^3.13.0",
     "p5": "^2.1.1",
