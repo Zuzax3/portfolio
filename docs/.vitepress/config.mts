@@ -6,6 +6,11 @@ import { defineConfig } from 'vitepress'
 const isProd = process.env.NODE_ENV === 'production'
 
 // https://vitepress.dev/reference/site-config
+// compute site base for nav links (uses Vite's BASE_URL at build time)
+const siteBase = (import.meta as any).env && (import.meta as any).env.BASE_URL
+  ? (import.meta as any).env.BASE_URL.replace(/\/$/, '')
+  : ''
+
 export default defineConfig({
   title: 'Portfolio',
   description: 'A VitePress Site',
@@ -16,10 +21,10 @@ export default defineConfig({
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: 'Home', link: '/' },
-      { text: 'about', link: '/about' },
-      { text: 'works', link: '/works' }
-    ]
+      { text: 'Home', link: siteBase + '/' },
+      { text: 'about', link: siteBase + '/about/' },
+      { text: 'works', link: siteBase + '/works/' }
+    ],
   },
 
   head: [
